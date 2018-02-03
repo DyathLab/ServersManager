@@ -3,8 +3,6 @@ package fr.dyathlab.serversmanager.sockets;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-import fr.dyathlab.serversmanager.bootstrap.settings.Settings;
-
 public class Server {
 	
 	ServerSocket server;
@@ -17,9 +15,9 @@ public class Server {
 			return;
 		}
 		try {
-			server = new ServerSocket(Settings.getServerPort());
+			server = new ServerSocket(0);
 		} catch (IOException e) {
-			System.err.println("Cant listen on port " + Settings.getServerPort());
+			System.err.println("Cant listen on port " + 0);
 			e.printStackTrace();
 		}
 		started = true;

@@ -61,7 +61,7 @@ public class SettingsManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		writer.getConfig().setClassTag("settings", Settings.class);
+		writer.getConfig().setClassTag("Settings", Settings.class);
 		try {
 			writer.write(new DefaultSettings());
 		} catch (YamlException e) {
@@ -73,10 +73,12 @@ public class SettingsManager {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	private void load() {
-		
 		if (get("port") == null) init();
-		Settings.setPort(Integer.parseInt((String) get("port")));
+		Settings settings = new Settings();
+		settings.port = Integer.parseInt((String) get("port"));
 	}
 
 	
